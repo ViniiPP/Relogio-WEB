@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function() {printTime();};
 
     function printTime() {
         var D = new Date();
