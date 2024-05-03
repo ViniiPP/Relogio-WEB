@@ -1,14 +1,17 @@
-window.onload = function() {
-    printTime();
-    };
+window.onload = function() {printTime();}
 
     function printTime() {
+
+        function normalizaTempo(tempo) {
+            return tempo < 10 ? '0' + tempo : tempo;
+        }
+
         var D = new Date();
-        var horas = D.getHours();
-        var minutos = D.getMinutes();
-        var segundos = D.getSeconds();
+        var horas = normalizaTempo(D.getHours());
+        var minutos = normalizaTempo(D.getMinutes());
+        var segundos = normalizaTempo(D.getSeconds());
+        var data = normalizaTempo(D.getDate());
         var dia = D.getDay();
-        var data = D.getDate();
         var mes = D.getMonth();
         var ano = D.getFullYear();
 
@@ -34,20 +37,6 @@ window.onload = function() {
             case 6:
                 dia = "Sábado";
                 break;
-        }
-
-
-        if(data < 10) {
-            data = "0" + data;
-        }
-        if(horas < 10){
-            horas = "0" + horas;
-        }
-        if(minutos < 10) {
-            minutos = "0" + minutos;
-        }
-        if(segundos < 10) {
-            segundos = "0" + segundos;
         }
 
         mes = (mes < 9 ? "0" : "") + (mes + 1);
